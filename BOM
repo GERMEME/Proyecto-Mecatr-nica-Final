@@ -1,0 +1,21 @@
+En este apartado se comenta la lista de materiales, componentes, herramientas y máquinas utilizadas para la realización del proyecto.
+
+1. Lista de materiales:
+         -Aproximadamente 1 kg de PLA para impresión de grúa torre.
+         -22 pernos  allen (DIN 912) M4x12mm
+         -22 tuercas M4
+         -Hilo 
+2. Lista de componentes:
+         -Arduino UNO
+         -Controlador L298N
+         -2 motores DC N20
+         -1 Joystick
+3. Lista de herramientas: (En este apartado se describen las herramientas necesarias en caso de montar la placa pcb y algunas herramientas de montaje)
+         -Placa PCB
+         -Cautín
+         -Estaño
+         -Soporte para soldadura
+         -Llaves allen
+         -Destornillador
+4. Lista de máquinas utilizadas:
+         -Dremel con fresa de 4mm (Se utilizó para corregir algunos orificios de la estructura impresa)
