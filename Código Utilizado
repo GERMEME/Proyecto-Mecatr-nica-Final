@@ -1,0 +1,51 @@
+//Avance 1:
+
+// Definición de los pines para el controlador L298N
+const int motorAPin1 = 2; // Primer pin de control para el Motor A.
+const int motorAPin2 = 3; // Segundo pin de control para el Motor A.
+const int motorBPin1 = 4; // Primer pin de control para el Motor B.
+const int motorBPin2 = 5; // Segundo pin de control para el Motor B.
+// Pines del joystick
+const int joystickX = A0; // Pin analógico para el eje X del joystick.
+const int joystickY = A1; // Pin analógico para el eje Y del joystick.
+// Zona muerta del joystick para prevenir movimiento involuntario
+const int deadZone = 50; // Rango de tolerancia centrado en el valor medio (512).
+void setup() {
+// Configura los pines del motor como salidas
+pinMode(motorAPin1, OUTPUT);
+pinMode(motorAPin2, OUTPUT);
+pinMode(motorBPin1, OUTPUT);
+pinMode(motorBPin2, OUTPUT);
+}
+void loop() {
+int xValue = analogRead(joystickX); // Lee el valor X del joystick
+int yValue = analogRead(joystickY); // Lee el valor Y del joystick
+// Control para el motor A (horizontal)
+if (xValue < 512 - deadZone) {
+// Si el joystick se mueve hacia la izquierda, el Motor A gira en esa dirección.
+digitalWrite(motorAPin1, LOW);
+digitalWrite(motorAPin2, HIGH);
+} else if (xValue > 512 + deadZone) {
+// Si el joystick se mueve hacia la derecha, el Motor A gira en dirección opuesta.
+digitalWrite(motorAPin1, HIGH);
+digitalWrite(motorAPin2, LOW);
+} else {
+// El joystick está cerca del centro en el eje X, detiene el motor A.
+digitalWrite(motorAPin1, LOW);
+digitalWrite(motorAPin2, LOW);
+}
+// Control para el motor B (vertical)
+if (yValue < 512 - deadZone) {
+// Si el joystick se mueve hacia abajo, el Motor B gira en esa dirección.
+digitalWrite(motorBPin1, LOW);
+digitalWrite(motorBPin2, HIGH);
+} else if (yValue > 512 + deadZone) {
+// Si el joystick se mueve hacia arriba, el Motor B gira en dirección opuesta.
+digitalWrite(motorBPin1, HIGH);
+digitalWrite(motorBPin2, LOW);
+} else {
+// El joystick está cerca del centro en el eje Y, detiene el motor B.
+digitalWrite(motorBPin1, LOW);
+digitalWrite(motorBPin2, LOW);
+}
+}
